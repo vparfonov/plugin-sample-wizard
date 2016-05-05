@@ -13,8 +13,9 @@ package org.eclipse.che.plugin.sample.wizard.projecttype;
 import com.google.inject.Inject;
 import org.eclipse.che.api.project.server.type.ProjectTypeDef;
 
+import static org.eclipse.che.plugin.sample.wizard.shared.Constants.COMPILER_VERSION_ATRIBUTE;
 import static org.eclipse.che.plugin.sample.wizard.shared.Constants.C_LANG;
-import static org.eclipse.che.plugin.sample.wizard.shared.Constants.C_PROJECT_TYPE_ID;
+import static org.eclipse.che.plugin.sample.wizard.shared.Constants.X_PROJECT_TYPE_ID;
 import static org.eclipse.che.plugin.sample.wizard.shared.Constants.LANGUAGE;
 
 
@@ -22,10 +23,11 @@ import static org.eclipse.che.plugin.sample.wizard.shared.Constants.LANGUAGE;
  * C wizard type
  * @author Vitalii Parfonov
  */
-public class CProjectType extends ProjectTypeDef {
+public class SampleProjectType extends ProjectTypeDef {
     @Inject
-    public CProjectType() {
-        super(C_PROJECT_TYPE_ID, "C", true, false, true);
+    public SampleProjectType() {
+        super(X_PROJECT_TYPE_ID, "Sample Project Type", true, false, true);
         addConstantDefinition(LANGUAGE, "language", C_LANG);
+        addVariableDefinition(COMPILER_VERSION_ATRIBUTE, "GCC compiler version", false);
     }
 }

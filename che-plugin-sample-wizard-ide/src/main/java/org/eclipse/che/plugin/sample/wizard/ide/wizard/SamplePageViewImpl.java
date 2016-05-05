@@ -10,12 +10,42 @@
  *******************************************************************************/
 package org.eclipse.che.plugin.sample.wizard.ide.wizard;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
+
 
 public class SamplePageViewImpl implements SamplePageView {
-    @Override
-    public void setDelegate(ActionDelegate actionDelegate) {
 
+    private       ActionDelegate       delegate;
+    private final DockLayoutPanel      rootElement;
+    @UiField
+    TextBox compilerVersion;
+
+    private static SamplePageViewImplUiBinder uiBinder = GWT.create(SamplePageViewImplUiBinder.class);
+
+
+    @Inject
+    public SamplePageViewImpl() {
+        rootElement = uiBinder.createAndBindUi(this);
+        compilerVersion.setFocus(true);
+    }
+
+    @UiHandler({"compilerVersion"})
+    void onKeyUp(KeyUpEvent event) {
+        delegate.onCompilerVersionChanged();
+    }
+
+
+    @Override
+    public void setDelegate(ActionDelegate delegate) {
+        this.delegate = delegate;
     }
 
     /**
@@ -23,6 +53,20 @@ public class SamplePageViewImpl implements SamplePageView {
      */
     @Override
     public Widget asWidget() {
-        return null;
+        return rootElement;
     }
+
+    @Override
+    public String getCompilerVersion() {
+        return compilerVersion.getText();
+    }
+
+    @Override
+    public void setCompilerVersion(String version) {
+        compilerVersion.setText(version);
+    }
+
+    interface SamplePageViewImplUiBinder extends UiBinder<DockLayoutPanel, SamplePageViewImpl> {
+    }
+
 }

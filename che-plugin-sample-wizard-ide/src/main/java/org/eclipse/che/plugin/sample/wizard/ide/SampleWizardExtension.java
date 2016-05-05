@@ -19,11 +19,9 @@ import org.eclipse.che.ide.api.constraints.Constraints;
 import org.eclipse.che.ide.api.extension.Extension;
 import org.eclipse.che.ide.api.filetypes.FileType;
 import org.eclipse.che.ide.api.filetypes.FileTypeRegistry;
-import org.eclipse.che.ide.api.icon.Icon;
-import org.eclipse.che.ide.api.icon.IconRegistry;
 import org.eclipse.che.plugin.sample.wizard.ide.action.SampleAction;
 
-import static org.eclipse.che.ide.api.action.IdeActions.GROUP_FILE_NEW;
+import static org.eclipse.che.ide.api.action.IdeActions.GROUP_HELP;
 
 /**
  *
@@ -32,25 +30,23 @@ import static org.eclipse.che.ide.api.action.IdeActions.GROUP_FILE_NEW;
 @Extension(title = "Sample Wizard")
 public class SampleWizardExtension {
 
-    public static String C_CATEGORY       = "C/C++";
+    public static String X_CATEGORY = "Sample Category";
 
     @Inject
     public SampleWizardExtension(FileTypeRegistry fileTypeRegistry,
-                                 @Named("CFileType") FileType cFile) {
-        fileTypeRegistry.registerFileType(cFile);
+                                 @Named("XFileType") FileType xFile) {
+        fileTypeRegistry.registerFileType(xFile);
     }
 
     @Inject
-    private void prepareActions(SampleAction newCSourceFileAction,
-                                ActionManager actionManager,
-                                SampleWizardResources resources,
-                                IconRegistry iconRegistry) {
+    private void prepareActions(SampleAction sampleAction,
+                                ActionManager actionManager) {
 
-        DefaultActionGroup newGroup = (DefaultActionGroup)actionManager.getAction(GROUP_FILE_NEW);
+        DefaultActionGroup newGroup = (DefaultActionGroup)actionManager.getAction(GROUP_HELP);
 
-        actionManager.registerAction("newCFile", newCSourceFileAction);
-        newGroup.add(newCSourceFileAction, Constraints.FIRST);
-        iconRegistry.registerIcon(new Icon(C_CATEGORY + ".samples.category.icon", resources.category()));
+        actionManager.registerAction("sayHello", sampleAction);
+        newGroup.add(sampleAction, Constraints.FIRST);
+
     }
 
 }

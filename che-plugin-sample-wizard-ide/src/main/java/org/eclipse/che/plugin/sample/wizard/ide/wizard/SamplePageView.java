@@ -10,15 +10,20 @@
  *******************************************************************************/
 package org.eclipse.che.plugin.sample.wizard.ide.wizard;
 
+import com.google.inject.ImplementedBy;
+
 import org.eclipse.che.ide.api.mvp.View;
 
+@ImplementedBy(SamplePageViewImpl.class)
 public interface SamplePageView extends View<SamplePageView.ActionDelegate> {
 
-    public interface ActionDelegate {
-        void onCoordinatesChanged();
+    String getCompilerVersion();
 
-        void packagingChanged(String packaging);
+    void setCompilerVersion(String version);
 
-        void generateFromArchetypeChanged(boolean isGenerateFromArchetype);
+
+    interface ActionDelegate {
+        void onCompilerVersionChanged();
+
     }
 }

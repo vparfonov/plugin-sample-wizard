@@ -15,8 +15,8 @@ import com.google.inject.Singleton;
 
 import org.eclipse.che.ide.api.action.Action;
 import org.eclipse.che.ide.api.action.ActionEvent;
-import org.eclipse.che.plugin.sample.wizard.ide.SampleWizardLocalizationConstant;
-import org.eclipse.che.plugin.sample.wizard.ide.SampleWizardResources;
+import org.eclipse.che.ide.api.notification.NotificationManager;
+import org.eclipse.che.ide.api.notification.StatusNotification;
 
 
 /**
@@ -26,17 +26,17 @@ import org.eclipse.che.plugin.sample.wizard.ide.SampleWizardResources;
 @Singleton
 public class SampleAction extends Action {
 
+    private final NotificationManager notificationManager;
+
     @Inject
-    public SampleAction(SampleWizardLocalizationConstant localizationConstant,
-                        SampleWizardResources sampleWizardResources) {
-        super(localizationConstant.createCFileActionTitle(),
-              localizationConstant.createCFileActionDescription(),
-              null,
-              sampleWizardResources.cFile());
+    public SampleAction(NotificationManager notificationManager) {
+        super("Say Hello", "Sample action");
+        this.notificationManager = notificationManager;
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
+        notificationManager.notify("Hello form Che!!!", StatusNotification.Status.SUCCESS,  StatusNotification.DisplayMode.FLOAT_MODE);
 
     }
 }

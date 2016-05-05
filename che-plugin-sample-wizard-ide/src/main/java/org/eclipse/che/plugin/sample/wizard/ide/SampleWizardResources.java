@@ -22,7 +22,7 @@ public interface SampleWizardResources extends ClientBundle {
     SampleWizardResources INSTANCE = GWT.create(SampleWizardResources.class);
 
     @Source("svg/c_file.svg")
-    SVGResource cFile();
+    SVGResource xFile();
 
     @Source("svg/category.svg")
     SVGResource category();

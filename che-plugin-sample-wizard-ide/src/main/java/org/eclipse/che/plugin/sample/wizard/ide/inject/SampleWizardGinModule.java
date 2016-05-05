@@ -40,8 +40,8 @@ public class SampleWizardGinModule extends AbstractGinModule {
 
     @Provides
     @Singleton
-    @Named("CFileType")
-    protected FileType provideCFile() {
-        return new FileType("C", SampleWizardResources.INSTANCE.cFile(), MimeType.TEXT_C, C_EXT);
+    @Named("XFileType")
+    protected FileType provideXFile() {
+        return new FileType("X", SampleWizardResources.INSTANCE.xFile(), MimeType.TEXT_C, C_EXT);
     }
 }

@@ -11,28 +11,53 @@
 package org.eclipse.che.plugin.sample.wizard.ide.wizard;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-
+import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
 import org.eclipse.che.api.workspace.shared.dto.ProjectConfigDto;
 import org.eclipse.che.ide.api.wizard.AbstractWizardPage;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import static org.eclipse.che.plugin.sample.wizard.shared.Constants.COMPILER_VERSION_ATRIBUTE;
+import static org.eclipse.che.plugin.sample.wizard.shared.Constants.DEFAULT_CCC_COMPILER_VERSION;
+
 public class SamplePagePresenter extends AbstractWizardPage<ProjectConfigDto> implements SamplePageView.ActionDelegate {
-    @Override
-    public void go(AcceptsOneWidget acceptsOneWidget) {
 
+    protected final SamplePageView view;
+    protected final EventBus       eventBus;
+
+
+    @Inject
+    public SamplePagePresenter(SamplePageView view, EventBus eventBus) {
+        this.view = view;
+        this.eventBus = eventBus;
+        view.setDelegate(this);
     }
 
     @Override
-    public void onCoordinatesChanged() {
+    public void init(ProjectConfigDto dataObject) {
+        super.init(dataObject);
+    }
 
+
+    @Override
+    public void go(AcceptsOneWidget container) {
+        container.setWidget(view);
+        view.setCompilerVersion(DEFAULT_CCC_COMPILER_VERSION);
+        setAttribute(COMPILER_VERSION_ATRIBUTE, DEFAULT_CCC_COMPILER_VERSION);
     }
 
     @Override
-    public void packagingChanged(String packaging) {
-
+    public void onCompilerVersionChanged() {
+        setAttribute(COMPILER_VERSION_ATRIBUTE, view.getCompilerVersion());
     }
 
-    @Override
-    public void generateFromArchetypeChanged(boolean isGenerateFromArchetype) {
-
+    /** Sets single value of attribute of data-object. */
+    private void setAttribute(String attrId, String value) {
+        Map<String, List<String>> attributes = dataObject.getAttributes();
+        attributes.put(attrId, Arrays.asList(value));
+        dataObject.setAttributes(attributes);
     }
 }

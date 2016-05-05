@@ -14,9 +14,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>che-plugin-parent</artifactId>
-        <groupId>org.eclipse.che.plugin</groupId>
-        <version>4.2.0</version>
+        <artifactId>che-parent</artifactId>
+        <groupId>org.eclipse.che</groupId>
+        <version>4.3.0-RC1-SNAPSHOT</version>
     </parent>
     <artifactId>che-plugin-sample-wizard-parent</artifactId>
     <packaging>pom</packaging>
@@ -25,21 +25,22 @@
         <module>che-plugin-sample-wizard-shared</module>
         <module>che-plugin-sample-wizard-server</module>
         <module>che-plugin-sample-wizard-ide</module>
+        <module>assembly</module>
     </modules>
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.eclipse.che.plugin</groupId>
+                <groupId>org.eclipse.che</groupId>
                 <artifactId>che-plugin-sample-wizard-ide</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.eclipse.che.plugin</groupId>
+                <groupId>org.eclipse.che</groupId>
                 <artifactId>che-plugin-sample-wizard-server</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.eclipse.che.plugin</groupId>
+                <groupId>org.eclipse.che</groupId>
                 <artifactId>che-plugin-sample-wizard-shared</artifactId>
                 <version>${project.version}</version>
             </dependency>

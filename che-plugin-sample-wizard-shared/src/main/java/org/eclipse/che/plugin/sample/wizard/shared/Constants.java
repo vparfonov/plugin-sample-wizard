@@ -15,22 +15,27 @@ public final class Constants {
     /**
      * Language attribute name
      */
-    public static String LANGUAGE            = "language";
+    public static String LANGUAGE          = "language";
     /**
-     * C Project Type ID
+     * X Project Type ID
      */
-    public static String C_PROJECT_TYPE_ID   = "c";
+    public static String X_PROJECT_TYPE_ID = "x";
 
     /**
      * C Language
      */
-    public static String C_LANG   = "c_lang";
+    public static String C_LANG = "c_lang";
 
     /**
      * Default extension for C files
      */
-    public static String C_EXT               = "c";
+    public static String C_EXT = "c";
 
-    private Constants() {}
+    public static String DEFAULT_CCC_COMPILER_VERSION = "5.3";
+
+    public static String COMPILER_VERSION_ATRIBUTE    = "compiler_version";
+
+    private Constants() {
+    }
 
 }

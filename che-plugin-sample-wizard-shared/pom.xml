@@ -15,8 +15,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>che-plugin-sample-wizard-parent</artifactId>
-        <groupId>org.eclipse.che.plugin</groupId>
-        <version>4.2.0</version>
+        <groupId>org.eclipse.che</groupId>
+        <version>4.3.0-RC1-SNAPSHOT</version>
     </parent>
     <artifactId>che-plugin-sample-wizard-shared</artifactId>
     <name>Che Plugin :: Sample Wizard :: Shared</name>
