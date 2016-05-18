@@ -42,6 +42,6 @@ public class SampleWizardGinModule extends AbstractGinModule {
     @Singleton
     @Named("XFileType")
     protected FileType provideXFile() {
-        return new FileType("X", SampleWizardResources.INSTANCE.xFile(), MimeType.TEXT_C, C_EXT);
+        return new FileType(SampleWizardResources.INSTANCE.xFile(), C_EXT);
     }
 }
