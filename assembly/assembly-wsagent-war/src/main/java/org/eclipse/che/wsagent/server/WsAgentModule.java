@@ -35,6 +35,7 @@ import org.eclipse.che.everrest.CheAsynchronousJobPool;
 import org.eclipse.che.git.impl.nativegit.LocalGitUserResolver;
 import org.eclipse.che.git.impl.nativegit.NativeGitConnectionFactory;
 import org.eclipse.che.inject.DynaModule;
+import org.eclipse.che.plugin.ssh.key.script.SshKeyProvider;
 import org.eclipse.che.security.oauth.RemoteOAuthTokenProvider;
 import org.everrest.core.impl.async.AsynchronousJobPool;
 import org.everrest.core.impl.async.AsynchronousJobService;
@@ -57,8 +58,8 @@ public class WsAgentModule extends AbstractModule {
         bind(OAuthTokenProvider.class).to(RemoteOAuthTokenProvider.class);
         bind(SshServiceClient.class).to(HttpSshServiceClient.class);
 
-        bind(org.eclipse.che.git.impl.nativegit.ssh.SshKeyProvider.class)
-                .to(org.eclipse.che.git.impl.nativegit.ssh.SshKeyProviderImpl.class);
+        bind(org.eclipse.che.plugin.ssh.key.script.SshKeyProvider.class)
+                .to(org.eclipse.che.plugin.ssh.key.script.SshKeyProviderImpl.class);
 
         install(new CoreRestModule());
         install(new FileCleanerModule());
