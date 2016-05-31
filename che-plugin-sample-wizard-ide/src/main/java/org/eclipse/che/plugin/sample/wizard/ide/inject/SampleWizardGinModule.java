@@ -16,11 +16,12 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
-import org.eclipse.che.ide.MimeType;
 import org.eclipse.che.ide.api.extension.ExtensionGinModule;
 import org.eclipse.che.ide.api.filetypes.FileType;
 import org.eclipse.che.ide.api.project.type.wizard.ProjectWizardRegistrar;
 import org.eclipse.che.plugin.sample.wizard.ide.SampleWizardResources;
+import org.eclipse.che.plugin.sample.wizard.ide.file.NewXFileView;
+import org.eclipse.che.plugin.sample.wizard.ide.file.NewXFileViewImpl;
 import org.eclipse.che.plugin.sample.wizard.ide.wizard.SampleWizardRegistrar;
 
 import static org.eclipse.che.plugin.sample.wizard.shared.Constants.C_EXT;
@@ -36,6 +37,7 @@ public class SampleWizardGinModule extends AbstractGinModule {
     @Override
     protected void configure() {
         GinMultibinder.newSetBinder(binder(), ProjectWizardRegistrar.class).addBinding().to(SampleWizardRegistrar.class);
+        bind(NewXFileView.class).to(NewXFileViewImpl.class).in(Singleton.class);
     }
 
     @Provides

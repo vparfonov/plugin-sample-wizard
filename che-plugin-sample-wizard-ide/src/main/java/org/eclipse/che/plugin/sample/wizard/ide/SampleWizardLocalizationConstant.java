@@ -21,12 +21,23 @@ import com.google.gwt.i18n.client.Messages;
 public interface SampleWizardLocalizationConstant extends Messages {
 
 
-    @Key("cpp.action.create.c.file.title")
-    @DefaultMessage("New C File")
-    String createCFileActionTitle();
+    @Key("ok")
+    @DefaultMessage("Ok")
+    String buttonOk();
 
-    @Key("cpp.action.create.c.file.description")
-    @DefaultMessage("Create C File")
-    String createCFileActionDescription();
+    @Key("cancel")
+    @DefaultMessage("Cancel")
+    String buttonCancel();
 
+    @Key("title")
+    @DefaultMessage("Enter file name and included header")
+    String title();
+
+    @Key("action.description")
+    @DefaultMessage("Create new X file")
+    String createXFileWithIncludedHeader();
+
+    @Key("action.title")
+    @DefaultMessage("New X file")
+    String newXFile();
 }

@@ -19,8 +19,10 @@ import org.eclipse.che.ide.api.constraints.Constraints;
 import org.eclipse.che.ide.api.extension.Extension;
 import org.eclipse.che.ide.api.filetypes.FileType;
 import org.eclipse.che.ide.api.filetypes.FileTypeRegistry;
+import org.eclipse.che.plugin.sample.wizard.ide.action.NewXFileAction;
 import org.eclipse.che.plugin.sample.wizard.ide.action.SampleAction;
 
+import static org.eclipse.che.ide.api.action.IdeActions.GROUP_FILE_NEW;
 import static org.eclipse.che.ide.api.action.IdeActions.GROUP_HELP;
 
 /**
@@ -40,12 +42,16 @@ public class SampleWizardExtension {
 
     @Inject
     private void prepareActions(SampleAction sampleAction,
+                                NewXFileAction newXFileAction,
                                 ActionManager actionManager) {
 
         DefaultActionGroup newGroup = (DefaultActionGroup)actionManager.getAction(GROUP_HELP);
+        DefaultActionGroup newFileGroup = (DefaultActionGroup)actionManager.getAction(GROUP_FILE_NEW);
 
         actionManager.registerAction("sayHello", sampleAction);
+        actionManager.registerAction("newFileActon", newXFileAction);
         newGroup.add(sampleAction, Constraints.FIRST);
+        newFileGroup.add(newXFileAction, Constraints.FIRST);
 
     }
 
