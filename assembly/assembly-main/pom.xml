@@ -16,7 +16,7 @@
     <parent>
         <artifactId>che-plugin-sample-wizard-assembly-parent</artifactId>
         <groupId>org.eclipse.che</groupId>
-        <version>4.3.0-RC1-SNAPSHOT</version>
+        <version>4.3.3</version>
     </parent>
     <artifactId>assembly-main</artifactId>
     <packaging>pom</packaging>
@@ -36,11 +36,6 @@
             <groupId>org.eclipse.che</groupId>
             <artifactId>assembly-wsmaster-war</artifactId>
             <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.che.core</groupId>
-            <artifactId>che-core-ide-stacks</artifactId>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.eclipse.che.core</groupId>

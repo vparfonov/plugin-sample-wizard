@@ -117,7 +117,7 @@
                 <include>ch.qos.logback:logback-core</include>
             </includes>
         </dependencySet>
-        <dependencySet>
+        <!--dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <unpack>true</unpack>
             <outputDirectory>stacks</outputDirectory>
@@ -129,7 +129,7 @@
                     <exclude>META-INF/**</exclude>
                 </excludes>
             </unpackOptions>
-        </dependencySet>
+        </dependencySet-->
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <unpack>true</unpack>
@@ -155,6 +155,10 @@
         <fileSet>
             <directory>${project.basedir}/src/assembly/bin</directory>
             <outputDirectory>bin</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/assembly/stacks</directory>
+            <outputDirectory>stacks</outputDirectory>
         </fileSet>
         <fileSet>
             <directory>${project.basedir}/src/assembly/plugins</directory>

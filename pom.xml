@@ -16,7 +16,7 @@
     <parent>
         <artifactId>che-parent</artifactId>
         <groupId>org.eclipse.che</groupId>
-        <version>4.3.0-RC1-SNAPSHOT</version>
+        <version>4.3.3</version>
     </parent>
     <artifactId>che-plugin-sample-wizard-parent</artifactId>
     <packaging>pom</packaging>

@@ -19,7 +19,7 @@ import org.eclipse.che.api.promises.client.Function;
 import org.eclipse.che.api.promises.client.FunctionException;
 import org.eclipse.che.ide.api.app.AppContext;
 import org.eclipse.che.ide.api.project.node.HasStorablePath;
-import org.eclipse.che.ide.api.project.node.Node;
+import org.eclipse.che.ide.api.data.tree.Node;
 import org.eclipse.che.ide.api.selection.Selection;
 import org.eclipse.che.ide.json.JsonHelper;
 import org.eclipse.che.ide.part.explorer.project.ProjectExplorerPresenter;
